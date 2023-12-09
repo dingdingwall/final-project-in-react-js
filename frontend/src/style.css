@@ -1,0 +1,92 @@
+/* App Styles */
+.App {
+    height: 100vh;
+    padding: 0 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  /* Books Styles */
+  .books {
+    display: flex;
+  }
+  
+  /* Book Styles */
+  .book {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  /* Image Styles */
+  img {
+    width: 200px;
+    height: 300px;
+    background-color: rgb(124, 165, 165);
+    object-fit: cover;
+  }
+  
+  /* Button Styles */
+  .delete
+ {
+    width: 100px;
+    padding: 10px;
+    border: 1px solid rgb(255, 5, 5);
+    background-color: white;
+  }
+  
+  .delete {
+    color: red;
+  }
+  
+
+  /* Form Styles */
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Input Styles */
+  input {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid gray;
+  }
+  
+  /* Form Button Styles */
+  .formButton {
+    border: none;
+    padding: 10px;
+    text-decoration: none;
+  }
+
+.btnAdd{
+    width: 100px;
+    padding: 3.5px;
+    border: 1px solid rgb(5, 75, 155);
+    background-color: white;
+    font-size: small;
+    margin-top: 20px;
+    color: rgb(5, 75, 155);
+     
+}
+
+
+.btnAdd:hover{
+
+     background-color: rgb(16, 147, 255);
+     color: white;
+}
+
+
+.delete:hover{
+
+    background-color: rgb(253, 93, 18);
+    color: white;
+}
