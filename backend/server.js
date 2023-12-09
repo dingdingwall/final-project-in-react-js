@@ -51,7 +51,7 @@ app.delete("/books/:id", (req, res) => {
      
 
 app.post("/books", (req, res) => {
-    const q = "INSERT INTO books (title, `desc`, price, cover) VALUES (?, ?, 0, ?)";
+    const q = "INSERT INTO books (title, `desc`, price, cover) VALUES (?, ?, ?, ?)";
     const values = [
         req.body.title,
         req.body.desc,
