@@ -22,7 +22,7 @@ const Add = () => {
      e.preventDefault()
      try {
         await axios.post("http://localhost:3001/books", book)
-        navigate("/")
+        navigate("/book")
      } catch (error) {
       console.log(error)
       
