@@ -1,24 +1,43 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// App.js
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './AuthContext';
 import './App.css';
-import Books from '../src/pages/books'
-import Add from "./pages/Add";
-
-import "../src/style.css"
-import Login from "./pages/Login";
+import Books from '../src/pages/books';
+import Add from './pages/Add';
+import '../src/style.css';
+import Login from './pages/Login';
 
 function App() {
+  const { isAuthenticated } = useAuth();
+
   return (
     <div className="App">
-    <BrowserRouter>
-    <Routes>
-       <Route path="/" element={<Login/>} />
-       <Route path="/add" element={<Add/>} />
-       <Route path="/book" element={<Books/>} />
-      
-    </Routes>
-  </BrowserRouter>
-  </div>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={isAuthenticated ? <Navigate to="/book" /> : <Login />}
+          />
+          <Route
+            path="/add"
+            element={isAuthenticated ? <Add /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/book"
+            element={isAuthenticated ? <Books /> : <Navigate to="/" />}
+          />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
-export default App;
+function AuthApp() {
+  return (
+    <AuthProvider>
+      <App />
+    </AuthProvider>
+  );
+}
+
+export default AuthApp;
