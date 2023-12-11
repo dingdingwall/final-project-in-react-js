@@ -1,4 +1,4 @@
-# final-project-in-react-js
+# FINAL PROJECT IN REACT
  // for the backend needed dependencies
 // need to install react-router-dom
 npm install cors
