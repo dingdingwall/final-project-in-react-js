@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 const Books = () => {
   const [books, setBooks] = useState([]);
 
+//fetch sa mga libro gikan sa server 
   useEffect(() => {
     const fetchAllBooks = async () => {
       try {

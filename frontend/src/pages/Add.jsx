@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const Add = () => {
+
+   // State hook to manage the form data for the new book
   const [book, setBook] = useState({
     title: "",
     desc: "",
@@ -16,16 +18,19 @@ const Add = () => {
     const value = e.target.name === 'price' ? parseFloat(e.target.value) : e.target.value;
     setBook(prev => ({...prev, [e.target.name]: value}));
   };
+
+   // Function sa pag-click sa "ADD" button
   const handleClick = async (e) =>
   {
 
      e.preventDefault()
      try {
+      // Async HTTP POST request gamit axios
         await axios.post("http://localhost:3001/books", book)
-        navigate("/book")
+        navigate("/book")  // I-navigate ang user ngadto sa "/book" page human ma-successfully nga na-add ang book
      } catch (error) {
       console.log(error)
-      
+         //I-log ang error kung naay  problema sa pag-post
      }
   }
 
