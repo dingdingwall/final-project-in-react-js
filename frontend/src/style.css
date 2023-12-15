@@ -64,7 +64,15 @@
     border: none;
     padding: 10px;
     text-decoration: none;
+    width: 250px;
   }
+
+
+  .formButton:hover {
+      background-color: aqua;
+      color: white;
+  }
+
 
 .btnAdd{
     width: 100px;
