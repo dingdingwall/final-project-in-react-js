@@ -1,30 +1,29 @@
-const express = require('express');
+const express = require('express'); // para makabuhat  og endpoints/routes
 const mysql = require('mysql');
-const cors = require('cors');
-
+const cors = require('cors');  // para maka gamit sa lain2 nga ports or domains 
 
 
 const app = express();
-app.use(cors());
+app.use(cors());  
 app.use(express.json());
 
 const db = mysql.createConnection({
 
 
-    host: 'localhost',
+    host: 'localhost',  
     user: 'root',
-    password: 'NewPassword',
-    database: 'test',
+    password: 'NewPassword', // mao ni password sa akong database
+    database: 'test',   // name sa database
 })
 
-
+ //End-point sa root path 
 app.get("/", (req , res) => {
 
 
     res.json("hello this is the backend");
 })
 
-
+// Endpoint  sa pag get sa tanan nga libro
 app.get("/books", (req, res)=>{
     const q = "SELECT * from books";
     db.query(q,(err, data)=>{
@@ -36,22 +35,23 @@ app.get("/books", (req, res)=>{
 });
 
 
-
+// Endpoint sa pag-delete og libro 
 app.delete("/books/:id", (req, res) => {
     const bookId = req.params.id;
     const q = "DELETE FROM books WHERE id = ?";
 
     db.query(q, [bookId], (err, data) => {
-        if (err) return res.json(err);
-        return res.json("Book has been deleted successfully!");
+        if (err) return res.json(err);   // if naay error sa pag-query, i-return ni nga error.
+        return res.json("Book has been deleted successfully!");   
     });
 });
 
 
      
 
-app.post("/books", (req, res) => {
-    const q = "INSERT INTO books (title, `desc`, price, cover) VALUES (?, ?, ?, ?)";
+app.post("/books", (req, res) => {  
+                                   //placeholders sa mga values
+    const q = "INSERT INTO books (title, `desc`, price, cover) VALUES (?, ?, ?, ?)"; 
     const values = [
         req.body.title,
         req.body.desc,
@@ -70,7 +70,7 @@ app.post("/books", (req, res) => {
 
 
 
-
+// Mo console log ragud siya ani nga message if na activate ang port 
 app.listen(3001, () => {
 
 
